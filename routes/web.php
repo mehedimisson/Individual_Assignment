@@ -23,6 +23,9 @@ Route::get('/adminhome', function(){
 Route::get('/addcar', function(){
 		return view('addcar');
 });
+Route::get('/car', function(){
+		return view('addcar');
+});
 Route::resource('car', 'carController');
 /*
 Route::group(['middleware'=>['sess']], function(){

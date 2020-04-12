@@ -24,7 +24,7 @@ class carController extends Controller
      */
     public function create()
     {
-        return view('addcar');
+        return view('car');
     }
 
     /**
@@ -46,7 +46,7 @@ class carController extends Controller
             'price'     =>  $request->get('price')
         ]);
          $car->save();
-        return redirect()->route('addcar')->with('success', 'Car Added');
+        return redirect()->route('car.addcar')->with('success', 'Car Added');
 
     }
 
