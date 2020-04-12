@@ -4,7 +4,7 @@
 <div class="row">
  <div class="col-md-12">
   <br />
-  <h3 aling="center">Add Data</h3>
+  <h3 aling="center">Add Car</h3>
   <br />
   @if(count($errors) > 0)
   <div class="alert alert-danger">
@@ -23,6 +23,10 @@
 
   <form method="post" action="{{url('car')}}">
    {{csrf_field()}}
+   <div class="links">
+                    <a href="{{url('/adminhome')}}">Homepage</a>
+                    <a href={{url('/delete')}}>Delete</a>
+                </div>
    <div class="form-group">
     <input type="text" name="carname" class="form-control" placeholder="Enter Car Name" />
    </div>

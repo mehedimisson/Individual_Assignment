@@ -20,12 +20,17 @@ Route::get('/home',function(){
 Route::get('/adminhome', function(){
 		return view('adminhome');
 });
-Route::get('/addcar', function(){
-		return view('addcar');
-});
-Route::get('/car', function(){
-		return view('addcar');
-});
+ Route::get('/addcar', function(){
+ 		return view('addcar');
+ });
+ Route::get('/car', function(){
+ 		return view('addcar');
+ });Route::get('/car/index', function(){
+ 		return view('car.index');
+ });
+// Route::get('/car', function(){
+// 		return view('addcar');
+// });
 Route::resource('car', 'carController');
 /*
 Route::group(['middleware'=>['sess']], function(){

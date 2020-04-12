@@ -14,7 +14,8 @@ class carController extends Controller
      */
     public function index()
     {
-        //
+        $car = Car::all()->toArray();
+        return view('car.index', compact('cars'));
     }
 
     /**
@@ -24,7 +25,7 @@ class carController extends Controller
      */
     public function create()
     {
-        return view('car');
+        return view('addcar');
     }
 
     /**
@@ -46,7 +47,7 @@ class carController extends Controller
             'price'     =>  $request->get('price')
         ]);
          $car->save();
-        return redirect()->route('car.addcar')->with('success', 'Car Added');
+        return redirect('/addcar')->with('success', 'Car Added');
 
     }
 
@@ -69,7 +70,8 @@ class carController extends Controller
      */
     public function edit($id)
     {
-        //
+        $car = Car::find($id);
+        return view('car.edit', compact('car', 'id'));
     }
 
     /**
@@ -81,7 +83,17 @@ class carController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'carname'    =>  'required',
+            'type'    =>  'required',
+            'price'     =>  'required'
+        ]);
+        $car = Car::find($id);
+        $car->carname = $request->get('carname');
+        $car->type = $request->get('type');
+        $car->price = $request->get('price');
+        $car->save();
+        return redirect('/car.index')->with('success', 'Data Updated');
     }
 
     /**
@@ -92,6 +104,8 @@ class carController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $car = Car::find($id);
+        $car->delete();
+        return redirect('/car.index')->with('success', 'Data Deleted');
     }
 }
