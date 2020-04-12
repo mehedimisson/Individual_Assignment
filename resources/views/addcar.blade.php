@@ -1,87 +1,41 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('master')
 
-        <title>Add Car</title>
+@section('content')
+<div class="row">
+ <div class="col-md-12">
+  <br />
+  <h3 aling="center">Add Data</h3>
+  <br />
+  @if(count($errors) > 0)
+  <div class="alert alert-danger">
+   <ul>
+   @foreach($errors->all() as $error)
+    <li>{{$error}}</li>
+   @endforeach
+   </ul>
+  </div>
+  @endif
+  @if(\Session::has('success'))
+  <div class="alert alert-success">
+   <p>{{ \Session::get('success') }}</p>
+  </div>
+  @endif
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        
-
-                <div class="links">
-                    <a href="{{url('/adminhome')}}">Homepage</a>
-                    <a href={{url('/delete')}}>Delete</a>
-                </div>
-                <h1>Add Car</h1>
-                <form method="post">
-                 <!-- @csrf -->
-                <!--{{ csrf_field()}} -->   
-                    <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    Car Name: <input type="text" name="carname" > <br><br>
-                    Type: <input type="text" name="type" > <br><br>
-                    Price: <input type="text" name="price" ><br>
-                    <input type="submit" name="submit" value="Submit" >
-                </form>
-            </div>
-        </div>
-    </body>
-</html>
+  <form method="post" action="{{url('car')}}">
+   {{csrf_field()}}
+   <div class="form-group">
+    <input type="text" name="carname" class="form-control" placeholder="Enter Car Name" />
+   </div>
+   <div class="form-group">
+    <input type="text" name="type" class="form-control" placeholder="Enter Type" />
+   </div>
+   <div class="form-group">
+    <input type="text" name="price" class="form-control" placeholder="Cost" />
+   </div>
+   <div class="form-group">
+    <input type="submit" class="btn btn-primary" />
+   </div>
+  </form>
+ </div>
+</div>
+@endsection
