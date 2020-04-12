@@ -22,10 +22,14 @@ class LoginController extends Controller
     				->first();
     	
     	if($user != null){
-            //if()
-            //$req->session()->put('username', $req->uname);
-            //$req->session()->put('type', $user->type);
-    		return redirect('\adminhome');//->route('about');
+            //if($user->type != )
+            if($user->type == 'admin'){
+                return redirect('/adminhome');
+            }
+            else
+            {
+                return redirect('/custhome');
+            }
     	}else{
             //$req->session()->flash('msg', 'invalid username/password');
             //return view('login.index');

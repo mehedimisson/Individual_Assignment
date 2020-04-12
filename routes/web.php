@@ -25,12 +25,13 @@ Route::get('/adminhome', function(){
  });
  Route::get('/car', function(){
  		return view('addcar');
- });Route::get('/car/index', function(){
+ });
+ Route::get('/car/index', function(){
  		return view('car.index');
  });
-// Route::get('/car', function(){
-// 		return view('addcar');
-// });
+Route::get('/custhome', function(){
+ 		return view('custhome');
+});
 Route::resource('car', 'carController');
 /*
 Route::group(['middleware'=>['sess']], function(){

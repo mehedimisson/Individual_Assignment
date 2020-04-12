@@ -13,7 +13,7 @@
   </div>
   @endif
   <div align="right">
-   <a href="{{url('car.addcar')}}" class="btn btn-primary">Add</a>
+   <a href="{{url('addcar')}}" class="btn btn-primary">Add</a>
    <br />
    <br />
   </div>

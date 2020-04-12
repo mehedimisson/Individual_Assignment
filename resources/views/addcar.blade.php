@@ -25,6 +25,7 @@
    {{csrf_field()}}
    <div class="links">
                     <a href="{{url('/adminhome')}}">Homepage</a>
+                    <a href="{{url('/car/index')}}">Back</a>
                     <a href={{url('/delete')}}>Delete</a>
                 </div>
    <div class="form-group">

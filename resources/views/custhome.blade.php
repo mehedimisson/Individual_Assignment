@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Admin Home</title>
+        <title>Customer Home</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -65,16 +65,16 @@
         </style>
     </head>
     <body>
-        <div class="content">
+        
+            <div class="content">
                 <div class="title m-b-md">
-                    Welcome Admin
+                    Welcome Customer
                 </div>
-
                 
-                <h1>Admin</h1>
+                <h1>Customer</h1>
             </div>
-            <div class="links" align="center">
-                    <a href="{{url('/addcar')}}">Add Car</a>
+            <div class="links">
+                    <a href="{{url('/addcar')}}">View Car</a>
                     <a href={{url('/login')}}>LogOut</a>
                 </div>
         </div>
